@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bridal Hair Artistry</title>
+    <link rel="icon" type="image/png" href="images/hair-background.png" />
+    <link rel="apple-touch-icon" href="images/hair-background.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a class="nav-logo" href="#home">Bridal Hair Artistry</a>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#gallery">My Work</a></li>
+          <li><a href="#what-to-expect">What to Expect</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#booking">Contact</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="hero" id="home">
+      <div class="hero-media">
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcset="images/hero_picture_mobile.png"
+          />
+          <img
+            class="hero-picture"
+            src="images/hero_picture_landscape.png"
+            alt="Bride and groom with wedding party in the mountains"
+          />
+        </picture>
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="brand">Bridal Hair Artistry</h1>
+        <p class="tag">
+          Your dream wedding hair, perfected for every photo and moment.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-outline" href="#what-to-expect">What to Expect</a>
+          <a class="btn btn-primary" href="#booking">Contact</a>
+        </div>
+      </div>
+      <a class="hero-scroll" href="#gallery" aria-label="Scroll to gallery">
+        <span>Explore</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </header>
+
+    <main>
+      <section id="gallery" class="section gallery-section">
+        <div class="section-header reveal">
+          <h2>My Work</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="gallery-grid">
+          <button class="gallery-item reveal" data-index="0" aria-label="View bridal hairstyle 1">
+            <img src="images/mywork_1.png" alt="Bridal hairstyle by Stacy 1" />
+            <span class="gallery-zoom">View</span>
+          </button>
+          <button class="gallery-item reveal reveal-delay-1" data-index="1" aria-label="View bridal hairstyle 2">
+            <img src="images/mywork_2.png" alt="Bridal hairstyle by Stacy 2" />
+            <span class="gallery-zoom">View</span>
+          </button>
+          <button class="gallery-item reveal reveal-delay-2" data-index="2" aria-label="View bridal hairstyle 3">
+            <img src="images/mywork_3.png" alt="Bridal hairstyle by Stacy 3" />
+            <span class="gallery-zoom">View</span>
+          </button>
+          <button class="gallery-item reveal reveal-delay-3" data-index="3" aria-label="View bridal hairstyle 4">
+            <img src="images/mywork_4.jpeg" alt="Bridal hairstyle by Stacy 4" />
+            <span class="gallery-zoom">View</span>
+          </button>
+          <button class="gallery-item reveal" data-index="4" aria-label="View bridal hairstyle 5">
+            <img src="images/mywork_5.png" alt="Bridal hairstyle by Stacy 5" />
+            <span class="gallery-zoom">View</span>
+          </button>
+          <button class="gallery-item reveal reveal-delay-1" data-index="5" aria-label="View bridal hairstyle 6">
+            <img src="images/mywork_6.jpeg" alt="Bridal hairstyle by Stacy 6" />
+            <span class="gallery-zoom">View</span>
+          </button>
+          <button class="gallery-item reveal reveal-delay-2" data-index="6" aria-label="View bridal hairstyle 7">
+            <img src="images/mywork_7.jpeg" alt="Bridal hairstyle by Stacy 7" />
+            <span class="gallery-zoom">View</span>
+          </button>
+          <button class="gallery-item reveal reveal-delay-3" data-index="7" aria-label="View bridal hairstyle 8">
+            <img src="images/mywork_8.jpeg" alt="Bridal hairstyle by Stacy 8" />
+            <span class="gallery-zoom">View</span>
+          </button>
+        </div>
+        <div class="gallery-action reveal">
+          <a
+            class="btn btn-primary"
+            href="https://www.instagram.com/hair_bystacy/?hl=en"
+            target="_blank"
+            rel="noopener"
+          >
+            See More on Instagram
+          </a>
+        </div>
+      </section>
+
+      <section id="what-to-expect" class="section expect-section">
+        <div class="expect-layout">
+          <div class="expect-photo-wrap reveal">
+            <img
+              class="expect-photo"
+              src="images/stacy_working.png"
+              alt="Stacy providing mobile wedding hair styling on location in Calgary"
+            />
+            <div class="expect-photo-frame"></div>
+          </div>
+          <div class="expect-content">
+            <div class="section-header reveal">
+              <h2>What to Expect</h2>
+              <div class="section-line"></div>
+            </div>
+            <div class="expect-text reveal">
+              <p>
+                Looking for a Calgary bridal hairstylist for your wedding day? I
+                offer professional on-location bridal hair services in Calgary for
+                brides and wedding parties, creating a relaxed and seamless
+                getting-ready experience from start to finish.
+              </p>
+              <p>
+                On your wedding morning, I’ll travel directly to your home, hotel,
+                or venue fully equipped with professional hairstyling tools,
+                products, pins, and extension supplies. I schedule approximately
+                1–1.5 hours per guest to ensure every bridal hairstyle is
+                polished, secure, and designed to last throughout your ceremony,
+                photos, and reception.
+              </p>
+              <p>
+                Before the big day, you can send inspiration photos, choose a
+                style from my bridal hair gallery, or book a pre-wedding bridal
+                hair trial to finalize your wedding hairstyle, accessories, and
+                veil placement. Together, we’ll confirm timelines and styling
+                order to ensure your wedding morning runs smoothly and
+                stress-free.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section pricing-section">
+        <div class="section-header section-header-center reveal">
+          <h2>Pricing</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card price-card-services reveal">
+            <ul class="price-service-list">
+              <li class="price-service-row">
+                <span class="price-service-name">Bride</span>
+                <span class="price">$225</span>
+              </li>
+              <li class="price-service-row">
+                <span class="price-service-name">Bridal Party (Per-Person)</span>
+                <span class="price">$180</span>
+              </li>
+              <li class="price-service-row">
+                <span class="price-service-name">Pre-Wedding Hair Trial</span>
+                <span class="price">$180</span>
+              </li>
+              <li class="price-service-row">
+                <span class="price-service-name">Deposit</span>
+                <span class="price">25% of Full Amount</span>
+              </li>
+            </ul>
+          </div>
+          <div class="price-card price-card-travel reveal reveal-delay-1">
+            <h3>Travel Fee</h3>
+            <p class="price-body">
+              Travel outside Calgary is charged at $1.00 per km, round trip.
+              Travel within Calgary is $45, plus parking.
+            </p>
+            <p class="price-body">
+              <strong>Early Start Time</strong> Applies to appointments before 6
+              a.m., from when the artist leaves for your location. Early start
+              fees are separate from travel rates. If travel exceeds two hours,
+              overnight accommodation the night before is required for safety.
+            </p>
+            <div class="early-start-grid">
+              <div class="early-start-item">
+                <span class="early-time">6 a.m.</span>
+                <span class="price-amount">$150</span>
+              </div>
+              <div class="early-start-item">
+                <span class="early-time">5 a.m.</span>
+                <span class="price-amount">$200</span>
+              </div>
+              <div class="early-start-item">
+                <span class="early-time">4 a.m.</span>
+                <span class="price-amount">$300</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="booking" class="section booking-section">
+        <div class="section-header section-header-center reveal">
+          <h2>Contact Me</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="booking-layout">
+          <form id="contactForm" class="booking-form reveal">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="message">Details</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Tell me about your wedding date, location, and needs"
+              required
+            ></textarea>
+
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+
+          <div class="booking-availability reveal reveal-delay-1">
+            <div class="availability-card">
+              <p class="booking-availability-text">
+                You can send me an email at
+                <a href="mailto:stacy.burch@me.com">stacy.burch@me.com</a>
+                or fill out the form below.
+              </p>
+              <p class="booking-availability-text">
+                To view my current availability, check the pinned post at the top
+                of my Instagram account. My availability is always changing so I
+                keep it updated on my profile.
+              </p>
+              <a
+                class="btn btn-outline"
+                href="https://www.instagram.com/hair_bystacy/?hl=en"
+                target="_blank"
+                rel="noopener"
+              >
+                My Current Availability
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about-section">
+        <div class="about-layout">
+          <a
+            class="about-photo-link reveal"
+            href="https://www.instagram.com/hair_bystacy/?hl=en"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit Stacy on Instagram"
+          >
+            <img
+              class="about-photo"
+              src="images/stacy.jpeg"
+              alt="Stacy, Calgary bridal hairstylist for wedding and bridal party hair"
+            />
+            <span class="about-photo-caption">Follow on Instagram</span>
+          </a>
+          <div class="about-text">
+            <div class="section-header reveal">
+              <h2>About Me</h2>
+              <div class="section-line"></div>
+            </div>
+            <div class="about-copy reveal">
+              <p class="about-greeting">Hi, I’m Stacy!</p>
+              <p>
+                I’m your bridal hairstylist specializing in wedding hair for
+                brides and bridal parties across Calgary. I believe your wedding
+                morning should feel just as beautiful as it looks, which is why I
+                create a calm, personal, and seamless experience from our first
+                conversation to the final touch. From soft romantic waves to
+                elegant updos, I design timeless, photo-ready bridal hairstyles
+                that feel like you — elevated, effortless, and made to last
+                through every moment of your wedding day.
+              </p>
+              <p>
+                When I’m not behind the chair, you’ll find me chasing my next
+                adventure or in the sky (yes, I’m also a pilot!).
+              </p>
+              <p>
+                While wedding and bridal party hair is my specialty, I also offer
+                colouring, haircuts, extensions, and everyday styling appointments
+                at
+                <a
+                  href="https://www.vagaro.com/hairstyliststacy"
+                  target="_blank"
+                  rel="noopener"
+                  >Citizen Salon Studios Marda Loop</a
+                >
+                in Calgary.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-brand">Bridal Hair Artistry</p>
+        <p>&copy; <span id="year"></span> Bridal Hair Artistry</p>
+      </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image gallery">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close gallery">&times;</button>
+      <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="lightbox-content">
+        <img id="lightboxImage" src="" alt="" />
+      </div>
+      <button class="lightbox-next" id="lightboxNext" aria-label="Next image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <span class="lightbox-counter" id="lightboxCounter"></span>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

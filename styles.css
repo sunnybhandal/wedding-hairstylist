@@ -39,19 +39,6 @@ body {
   overflow-x: hidden;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-image: url("images/hair-background.png");
-  background-repeat: no-repeat;
-  background-position: center 8%;
-  background-size: min(600px, 75vw);
-  opacity: 0.08;
-  pointer-events: none;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -922,7 +909,7 @@ a {
 
 .about-greeting {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.875rem;
   font-style: italic;
   color: var(--sage-dark);
   margin-bottom: 1rem !important;

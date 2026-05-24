@@ -163,10 +163,10 @@ a {
 .nav-toggle {
   display: none;
   flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  width: 32px;
-  height: 32px;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 28px;
+  height: 18px;
   padding: 0;
   border: none;
   background: none;
@@ -176,21 +176,28 @@ a {
 .nav-toggle span {
   display: block;
   width: 100%;
-  height: 1.5px;
+  height: 2px;
   background: var(--white);
-  transition: transform var(--transition), opacity var(--transition);
+  transform-origin: center;
+  transition:
+    transform var(--transition),
+    opacity var(--transition);
 }
 
 .site-nav.scrolled .nav-toggle span {
   background: var(--charcoal);
 }
 
-.nav-toggle.open span:first-child {
-  transform: translateY(3.75px) rotate(45deg);
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-.nav-toggle.open span:last-child {
-  transform: translateY(-3.75px) rotate(-45deg);
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* ─── Hero ─── */
@@ -199,7 +206,7 @@ a {
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   justify-content: center;
 }
 
@@ -245,7 +252,10 @@ a {
   z-index: 2;
   width: 100%;
   max-width: var(--max-width);
-  padding: calc(var(--nav-height) + 3rem) var(--page-inset) 6rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: calc(var(--nav-height) + 1.25rem) var(--page-inset) 2.5rem;
   text-align: center;
 }
 
@@ -265,9 +275,24 @@ a {
   font-weight: 300;
   letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.92);
-  margin: 0 auto 2.5rem;
+  margin: 0 auto;
   max-width: 32rem;
   line-height: 1.6;
+}
+
+@media (min-width: 769px) {
+  .tag {
+    white-space: nowrap;
+    max-width: none;
+  }
+}
+
+.hero-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
 }
 
 .hero-buttons {
@@ -278,11 +303,6 @@ a {
 }
 
 .hero-scroll {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -301,8 +321,8 @@ a {
 }
 
 @keyframes scrollBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(6px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 /* ─── Buttons ─── */
@@ -641,9 +661,52 @@ a {
 }
 
 .price-card-services .price-service-list {
-  flex: 1;
-  justify-content: space-between;
-  min-height: 100%;
+  flex: none;
+}
+
+.price-card-services .services-season-note {
+  margin-top: 1rem;
+  flex-shrink: 0;
+}
+
+.price-card-services .price-service-row {
+  flex: none;
+  padding: 0.75rem 0;
+}
+
+@media (min-width: 901px) {
+  .pricing-grid {
+    align-items: stretch;
+  }
+
+  .price-card-services {
+    height: 100%;
+  }
+
+  .price-card-services .price-service-list {
+    flex: 1 1 auto;
+    justify-content: space-between;
+    min-height: 0;
+  }
+
+  .price-card-services .price-service-row {
+    flex: 0 0 auto;
+    padding: 0.85rem 0;
+  }
+
+  .price-card-services .services-season-note {
+    margin-top: auto;
+  }
+}
+
+.price-card-services .price-note-label {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
 }
 
 .price-card h3 {
@@ -673,11 +736,6 @@ a {
   gap: 1rem;
   padding: 1.25rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.price-card-services .price-service-row {
-  flex: 1;
-  padding: clamp(1rem, 2.5vw, 1.75rem) 0;
 }
 
 .price-service-row:last-child {
@@ -756,6 +814,22 @@ a {
   font-size: 1.35rem;
   font-weight: 500;
   color: var(--gold-light);
+}
+
+.price-card-travel .price-body {
+  font-size: 1.05rem;
+}
+
+.price-card-travel .price-body strong {
+  font-size: 0.85rem;
+}
+
+.price-card-travel .early-time {
+  font-size: 0.85rem;
+}
+
+.price-card-travel .price-amount {
+  font-size: 1.45rem;
 }
 
 /* ─── Booking ─── */
@@ -907,9 +981,9 @@ a {
   transform: translateY(0);
 }
 
-.about-greeting {
+.about-copy p.about-greeting {
   font-family: var(--font-display);
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   font-style: italic;
   color: var(--sage-dark);
   margin-bottom: 1rem !important;
@@ -932,12 +1006,13 @@ a {
 .site-footer {
   background: var(--charcoal);
   color: rgba(255, 255, 255, 0.5);
-  padding: 2.5rem var(--page-inset);
+  padding: 2.5rem 0;
 }
 
 .footer-inner {
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 var(--page-inset);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -980,6 +1055,14 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .booking-availability {
+    order: 1;
+  }
+
+  .booking-form {
+    order: 2;
+  }
+
   .expect-photo-frame {
     display: none;
   }
@@ -996,12 +1079,45 @@ a {
 }
 
 @media (max-width: 768px) {
+  .pricing-section .section-header-center,
+  .booking-section .section-header-center {
+    text-align: left;
+  }
+
+  .pricing-section .section-header-center .section-line,
+  .booking-section .section-header-center .section-line {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
   .price-card-services {
     min-height: 22rem;
   }
 
+  .price-card-services .price-service-list {
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .price-card-services .price-service-row {
+    flex: 1;
+    padding: clamp(1rem, 2.5vw, 1.75rem) 0;
+  }
+
+  .price-card-services .services-season-note {
+    margin-top: 1.5rem;
+  }
+
   .nav-toggle {
     display: flex;
+  }
+
+  .site-nav.menu-open .nav-logo {
+    color: var(--charcoal);
+  }
+
+  .site-nav.menu-open .nav-toggle span {
+    background: var(--charcoal);
   }
 
   .nav-links {
@@ -1032,26 +1148,23 @@ a {
     font-size: 0.9rem;
   }
 
-  .hero {
-    align-items: stretch;
-  }
-
   .hero-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding-top: calc(var(--nav-height) + 1.25rem);
-    padding-bottom: 2.5rem;
+    text-align: left;
+    align-items: flex-start;
   }
 
   .tag {
-    margin-bottom: 0;
+    margin: 0;
+    max-width: 100%;
   }
 
   .hero-buttons {
-    margin-top: auto;
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 0.65rem;
   }
 
   .hero-scroll {
@@ -1059,7 +1172,11 @@ a {
   }
 
   .hero-buttons .btn {
-    width: 100%;
+    width: auto;
+    flex: 0 1 auto;
+    padding: 0.7rem 0.85rem;
+    font-size: clamp(0.625rem, 2.8vw, 0.75rem);
+    letter-spacing: 0.1em;
   }
 
   .early-start-grid {
@@ -1067,8 +1184,25 @@ a {
   }
 
   .footer-inner {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    text-align: left;
+  }
+
+  .footer-brand {
+    font-size: clamp(0.95rem, 3.8vw, 1.25rem);
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .site-footer p:last-child {
+    flex: 0 0 auto;
+    font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+    text-align: right;
+    white-space: nowrap;
   }
 }
 

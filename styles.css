@@ -678,8 +678,8 @@ a {
 
 .event-subsection p {
   margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.8;
+  font-size: 1.05rem;
+  line-height: 1.85;
   color: var(--text);
 }
 
@@ -728,14 +728,9 @@ a {
   flex: none;
 }
 
-.price-card-services .services-season-note {
-  margin-top: 1rem;
-  flex-shrink: 0;
-}
-
 .price-card-services .price-service-row {
   flex: none;
-  padding: 0.75rem 0;
+  padding: 1.35rem 0;
 }
 
 @media (min-width: 901px) {
@@ -754,23 +749,9 @@ a {
   }
 
   .price-card-services .price-service-row {
-    flex: 0 0 auto;
-    padding: 0.85rem 0;
+    flex: 1 1 auto;
+    padding: 1.1rem 0;
   }
-
-  .price-card-services .services-season-note {
-    margin-top: auto;
-  }
-}
-
-.price-card-services .price-note-label {
-  display: block;
-  margin-top: 0.35rem;
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 500;
-  color: var(--gold-light);
-  letter-spacing: 0.02em;
 }
 
 .price-card h3 {
@@ -1172,11 +1153,7 @@ a {
 
   .price-card-services .price-service-row {
     flex: 1;
-    padding: clamp(1rem, 2.5vw, 1.75rem) 0;
-  }
-
-  .price-card-services .services-season-note {
-    margin-top: 1.5rem;
+    padding: clamp(1.15rem, 2.8vw, 1.9rem) 0;
   }
 
   .nav-toggle {
@@ -1253,8 +1230,8 @@ a {
   .hero-buttons .btn {
     width: auto;
     flex: 0 1 auto;
-    padding: 0.7rem 0.85rem;
-    font-size: clamp(0.625rem, 2.8vw, 0.75rem);
+    padding: 0.8rem 1.1rem;
+    font-size: clamp(0.7rem, 3vw, 0.8rem);
     letter-spacing: 0.1em;
   }
 

@@ -471,6 +471,10 @@ a {
   transition: transform 0.6s ease;
 }
 
+.gallery-item img[src*="mywork_5"] {
+  object-position: center center;
+}
+
 .gallery-item::before {
   content: "";
   position: absolute;
@@ -655,6 +659,28 @@ a {
 
 .event-text p:last-child {
   margin-bottom: 0;
+}
+
+.event-subsection {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(184, 149, 106, 0.35);
+}
+
+.event-subsection-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.85rem;
+  color: var(--charcoal);
+}
+
+.event-subsection p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--text);
 }
 
 /* ─── Pricing ─── */
@@ -1093,6 +1119,10 @@ a {
   .booking-layout,
   .about-layout {
     grid-template-columns: 1fr;
+  }
+
+  .event-photo-wrap {
+    order: -1;
   }
 
   .booking-availability {

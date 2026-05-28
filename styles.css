@@ -945,9 +945,41 @@ a {
   box-shadow: 0 0 0 2px rgba(184, 149, 106, 0.15);
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-status {
+  margin: 1.25rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.form-status--success {
+  color: var(--sage-dark);
+}
+
+.form-status--error {
+  color: #8b3a3a;
+}
+
+.form-status a {
+  color: var(--sage-dark);
+  font-weight: 500;
+}
+
 .booking-form .btn {
   margin-top: 2rem;
   align-self: flex-start;
+}
+
+.booking-form .form-status + .btn {
+  margin-top: 1.25rem;
 }
 
 .availability-card {

@@ -113,16 +113,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("contactForm");
   if (form) {
-    form.addEventListener("submit", (e) => {
+    const successEl = document.getElementById("formSuccess");
+    const errorEl = document.getElementById("formError");
+    const subjectField = document.getElementById("formSubject");
+    const submitBtn = form.querySelector('[type="submit"]');
+    const formSubmitEndpoint =
+      "https://formsubmit.co/ajax/stacy.burch@me.com";
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      if (successEl) successEl.hidden = true;
+      if (errorEl) errorEl.hidden = true;
+
       const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const msg = document.getElementById("message").value.trim();
-      const subject = encodeURIComponent("Bridal Booking Request " + name);
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\n${msg}`,
-      );
-      window.location.href = `mailto:stacy.burch@me.com?subject=${subject}&body=${body}`;
+      if (subjectField) {
+        subjectField.value = `Bridal Booking Request ${name}`;
+      }
+
+      const originalLabel = submitBtn?.textContent ?? "Send";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+      }
+
+      try {
+        const response = await fetch(formSubmitEndpoint, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          form.reset();
+          if (successEl) successEl.hidden = false;
+        } else if (errorEl) {
+          errorEl.hidden = false;
+        }
+      } catch {
+        if (errorEl) errorEl.hidden = false;
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        }
+      }
     });
   }
 });

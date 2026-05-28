@@ -229,7 +229,29 @@
           <div class="section-line"></div>
         </div>
         <div class="booking-layout">
-          <form id="contactForm" class="booking-form reveal">
+          <form
+            id="contactForm"
+            class="booking-form reveal"
+            action="https://formsubmit.co/stacy.burch@me.com"
+            method="POST"
+          >
+            <input
+              type="text"
+              name="_honey"
+              class="form-honeypot"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+            <input
+              type="hidden"
+              name="_subject"
+              id="formSubject"
+              value="Bridal Booking Request"
+            />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+
             <label for="name">Name</label>
             <input id="name" name="name" type="text" required />
 
@@ -244,6 +266,15 @@
               placeholder="Tell me about your wedding date, location, number of people, and any other details"
               required
             ></textarea>
+
+            <p class="form-status form-status--success" id="formSuccess" hidden>
+              Thank you — your message was sent. I’ll get back to you soon.
+            </p>
+            <p class="form-status form-status--error" id="formError" hidden>
+              Something went wrong. Please email
+              <a href="mailto:stacy.burch@me.com">stacy.burch@me.com</a>
+              directly.
+            </p>
 
             <button type="submit" class="btn btn-primary">Send</button>
           </form>

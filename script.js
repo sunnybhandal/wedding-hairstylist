@@ -121,16 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const endpoint = form.getAttribute("action");
-      if (!endpoint || endpoint.includes("REPLACE_WITH_YOUR_FORM_ID")) {
-        if (errorEl) {
-          errorEl.textContent =
-            "Contact form is not set up yet. Please email stacy.burch@me.com directly.";
-          errorEl.hidden = false;
-        }
-        return;
-      }
-
       if (successEl) successEl.hidden = true;
       if (errorEl) errorEl.hidden = true;
 
@@ -146,10 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const response = await fetch(endpoint, {
+        const response = await fetch("/", {
           method: "POST",
-          body: new FormData(form),
-          headers: { Accept: "application/json" },
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(new FormData(form)).toString(),
         });
 
         if (response.ok) {

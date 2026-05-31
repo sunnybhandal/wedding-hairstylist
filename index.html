@@ -278,13 +278,16 @@
         <div class="booking-layout">
           <form
             id="contactForm"
+            name="contact"
             class="booking-form reveal"
-            action="https://formspree.io/f/xzdwqqqb"
             method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
           >
+            <input type="hidden" name="form-name" value="contact" />
             <input
               type="text"
-              name="_gotcha"
+              name="bot-field"
               class="form-honeypot"
               tabindex="-1"
               autocomplete="off"
@@ -292,7 +295,7 @@
             />
             <input
               type="hidden"
-              name="_subject"
+              name="subject"
               id="formSubject"
               value="Bridal Booking Request"
             />

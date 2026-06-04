@@ -1,0 +1,11 @@
+# Bridal Hair Artistry — Calgary bridal & wedding hairstyling
+# https://bridalhairartistry.ca
+
+User-agent: *
+Allow: /
+
+# Block Netlify form handler paths from indexing (not user-facing pages)
+Disallow: /success
+Disallow: /thanks
+
+Sitemap: https://bridalhairartistry.ca/sitemap.xml

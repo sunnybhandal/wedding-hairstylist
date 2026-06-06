@@ -278,7 +278,7 @@ a {
 
 .tag {
   font-size: clamp(1rem, 2.5vw, 1.35rem);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.92);
   margin: 0 auto;

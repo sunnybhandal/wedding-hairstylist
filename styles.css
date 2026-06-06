@@ -261,13 +261,19 @@ a {
 
 .brand {
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 8vw, 5.5rem);
-  font-weight: 500;
+  font-size: clamp(2.5rem, 7.25vw, 5rem);
+  font-weight: 600;
   letter-spacing: 0.06em;
   line-height: 1.1;
   margin: 0 0 1rem;
   color: var(--white);
   text-shadow: 0 2px 40px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 1024px) {
+  .brand {
+    font-size: clamp(2.5rem, 7.25vw, 4.65rem);
+  }
 }
 
 .tag {

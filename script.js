@@ -111,6 +111,46 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "ArrowRight") navigateLightbox(1);
   });
 
+  const lightboxContent = lightbox?.querySelector(".lightbox-content");
+  const SWIPE_THRESHOLD = 50;
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  const handleLightboxTouchStart = (e) => {
+    if (!lightbox?.classList.contains("active")) return;
+    const touch = e.touches[0];
+    if (!touch) return;
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  };
+
+  const handleLightboxTouchEnd = (e) => {
+    if (!lightbox?.classList.contains("active")) return;
+    const touch = e.changedTouches[0];
+    if (!touch) return;
+
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+
+    if (
+      Math.abs(deltaX) < SWIPE_THRESHOLD ||
+      Math.abs(deltaX) < Math.abs(deltaY)
+    ) {
+      return;
+    }
+
+    navigateLightbox(deltaX < 0 ? 1 : -1);
+  };
+
+  if (lightboxContent) {
+    lightboxContent.addEventListener("touchstart", handleLightboxTouchStart, {
+      passive: true,
+    });
+    lightboxContent.addEventListener("touchend", handleLightboxTouchEnd, {
+      passive: true,
+    });
+  }
+
   const form = document.getElementById("contactForm");
   if (form) {
     const successEl = document.getElementById("formSuccess");

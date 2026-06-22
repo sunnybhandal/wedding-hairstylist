@@ -120,6 +120,12 @@ a {
   color: var(--charcoal);
 }
 
+.nav-logo:hover,
+.site-nav.scrolled .nav-logo:hover,
+.site-nav.menu-open .nav-logo:hover {
+  color: var(--gold);
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -481,6 +487,10 @@ a {
   object-position: center center;
 }
 
+.gallery-item img[src*="mywork_9"] {
+  object-position: center 35%;
+}
+
 .gallery-item::before {
   content: "";
   position: absolute;
@@ -545,6 +555,7 @@ a {
 .lightbox-content {
   max-width: 90vw;
   max-height: 85vh;
+  touch-action: pan-y;
 }
 
 .lightbox-content img {

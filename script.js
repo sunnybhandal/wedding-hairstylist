@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.getElementById("navToggle");
   const navLinks = document.getElementById("navLinks");
   const navBackdrop = document.getElementById("navBackdrop");
+  const mobileNavQuery = window.matchMedia("(max-width: 768px)");
+  let menuOpenScrollY = 0;
+
+  const isMobileNav = () => mobileNavQuery.matches;
 
   const setMenuOpen = (open) => {
     navLinks?.classList.toggle("open", open);
@@ -14,11 +18,25 @@ document.addEventListener("DOMContentLoaded", () => {
     nav?.classList.toggle("menu-open", open);
     navToggle?.setAttribute("aria-expanded", String(open));
     navBackdrop?.setAttribute("aria-hidden", String(!open));
-    document.body.style.overflow = open ? "hidden" : "";
+
+    if (open) {
+      menuOpenScrollY = window.scrollY;
+      document.body.style.overflow = isMobileNav() ? "" : "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
   };
 
   const handleScroll = () => {
     if (nav) nav.classList.toggle("scrolled", window.scrollY > 60);
+
+    if (
+      navLinks?.classList.contains("open") &&
+      isMobileNav() &&
+      Math.abs(window.scrollY - menuOpenScrollY) > 8
+    ) {
+      setMenuOpen(false);
+    }
   };
   window.addEventListener("scroll", handleScroll, { passive: true });
   handleScroll();

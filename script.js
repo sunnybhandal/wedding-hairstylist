@@ -67,6 +67,31 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   revealEls.forEach((el) => revealObserver.observe(el));
 
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  const setFaqItemOpen = (item, open) => {
+    const button = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+
+    item.classList.toggle("open", open);
+    button?.setAttribute("aria-expanded", String(open));
+    answer?.setAttribute("aria-hidden", String(!open));
+  };
+
+  faqItems.forEach((item) => {
+    const button = item.querySelector(".faq-question");
+
+    button?.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+
+      faqItems.forEach((other) => setFaqItemOpen(other, false));
+
+      if (!isOpen) {
+        setFaqItemOpen(item, true);
+      }
+    });
+  });
+
   const galleryItems = document.querySelectorAll(".gallery-item");
   const lightbox = document.getElementById("lightbox");
   const lightboxImage = document.getElementById("lightboxImage");

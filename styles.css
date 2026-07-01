@@ -15,6 +15,8 @@
   --font-body: "Jost", system-ui, -apple-system, sans-serif;
   --nav-height: 72px;
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --faq-transition: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  --faq-fade-transition: 0.4s ease;
 }
 
 *,
@@ -314,6 +316,20 @@ a {
   justify-content: center;
 }
 
+.hero-buttons .btn-primary:hover {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.hero-buttons .btn-outline:hover {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
 .hero-scroll {
   display: flex;
   flex-direction: column;
@@ -365,8 +381,9 @@ a {
 }
 
 .btn-primary:hover {
-  background: var(--gold-light);
-  border-color: var(--gold-light);
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--gold);
   transform: translateY(-2px);
 }
 
@@ -380,6 +397,7 @@ a {
   background: var(--white);
   color: var(--charcoal);
   border-color: var(--white);
+  transform: translateY(-2px);
 }
 
 .section .btn-outline {
@@ -638,6 +656,13 @@ a {
 
 .expect-text p:last-child {
   margin-bottom: 0;
+}
+
+.expect-text a {
+  color: var(--sage-dark);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ─── Event Styling ─── */
@@ -1088,6 +1113,135 @@ a {
   margin: 0 0 1.25rem;
   font-size: 1.05rem;
   line-height: 1.85;
+}
+
+/* ─── FAQ ─── */
+.faq-section {
+  background: var(--cream);
+  max-width: none;
+  margin: 0;
+  padding: clamp(4rem, 10vw, 7rem) 0;
+}
+
+.faq-section .section-header,
+.faq-list {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-inset);
+  padding-right: var(--page-inset);
+}
+
+.faq-list {
+  border-top: none;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(184, 149, 106, 0.35);
+  padding-bottom: 1.35rem;
+  transition: padding-bottom var(--faq-transition);
+}
+
+.faq-item.open {
+  padding-bottom: 0;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid rgba(184, 149, 106, 0.35);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.35rem 0 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--charcoal);
+  transition: color var(--transition);
+}
+
+.faq-question:hover,
+.faq-question:focus-visible {
+  color: var(--sage-dark);
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  color: var(--gold);
+  transition: transform var(--faq-transition);
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  min-height: 0;
+  transition: grid-template-rows var(--faq-transition);
+}
+
+.faq-item.open .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq-answer-inner > p {
+  margin: 0;
+  padding: 0.75rem 0 1.35rem;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity var(--faq-fade-transition),
+    transform var(--faq-fade-transition);
+}
+
+.faq-item.open .faq-answer-inner > p {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--faq-fade-transition) 0.12s,
+    transform var(--faq-fade-transition) 0.12s;
+}
+
+.faq-item:not(.open) .faq-answer-inner > p {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.faq-answer a {
+  color: var(--gold);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.faq-answer a:hover,
+.faq-answer a:focus-visible {
+  color: var(--gold-light);
 }
 
 .about-copy a {

@@ -1,4 +1,4 @@
-# Bridal Hair Artistry — Calgary bridal & wedding hairstyling
+# Company Name — Calgary bridal & wedding hairstyling
 # https://bridalhairartistry.ca
 
 User-agent: *

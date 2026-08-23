@@ -1144,6 +1144,15 @@ a {
   color: var(--sage-dark);
 }
 
+.faq-item.open .faq-question {
+  color: var(--gold);
+}
+
+.faq-item.open .faq-question:hover,
+.faq-item.open .faq-question:focus-visible {
+  color: var(--gold-light);
+}
+
 .faq-question:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 4px;
